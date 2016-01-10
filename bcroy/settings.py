@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.twitter',
     'logingf',
 ]
 
@@ -97,7 +98,7 @@ ACCOUNT_USERNAME_REQUIRED = True
 #ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 LOGIN_REDIRECT_URL='/'
 
-#ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_LOGOUT_ON_GET = True
 
 WSGI_APPLICATION = 'bcroy.wsgi.application'
 
