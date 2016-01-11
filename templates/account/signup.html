@@ -1,17 +1,47 @@
 {% extends "account/base.html" %}
-
+{% load template_style %}
 {% load i18n %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Sign Up" %}</h1>
+<!--<h1>{% trans "Sign Up" %}</h1>
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>-->
+<div class="login-box">
+    <div class="lb-header">
+      <a href="{{ login_url }}" class="active" id="login-box-link">Login</a>
+      <a href="{{ signup_url }}" id="signup-box-link">Sign Up</a>
+    </div>
+    <div class="social-login">
+        <a href="/accounts/twitter/login/?process=login">
+        <i class="fa fa-twitter fa-lg"></i>
+        Login in with twitter
+      </a>
+  
+      <a href="/accounts/google/login/?process=login">
+        <i class="fa fa-google fa-lg"></i>
+        log in with Google
+      </a>
+    </div>
 
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+<form class="email-signup"  method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
-  {{ form.as_p }}
+
+  <div class="u-form-group">
+  {{ form.username|addcss:"input-text full-width;username"}}
+  
+  <div class="u-form-group">
+  {{ form.email|addcss:"input-text full-width;E-mail"}}
+
+ 
+  <div class="u-form-group">
+  {{ form.password1|addcss:"input-text full-width;password"}}
+
+  <div class="u-form-group">
+  {{ form.password2|addcss:"input-text full-width;again"}}
+
+
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
