@@ -28,23 +28,26 @@
 <form class="email-signup"  method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
 
-  <div class="u-form-group">
-  {{ form.username|addcss:"input-text full-width;username"}}
+  <div class="u-form-group"> <br></br>
+  {{ form.username }}
   
-  <div class="u-form-group">
-  {{ form.email|addcss:"input-text full-width;E-mail"}}
+  <div class="u-form-group"> <br></br>
+  {{ form.email }}
 
  
   <div class="u-form-group">
-  {{ form.password1|addcss:"input-text full-width;password"}}
+  {{ form.password1 }}
 
   <div class="u-form-group">
-  {{ form.password2|addcss:"input-text full-width;again"}}
+  {{ form.password2 }}
 
 
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
+
+  <br></br>
+
   <button type="submit">{% trans "Sign Up" %} &raquo;</button>
 </form>
 

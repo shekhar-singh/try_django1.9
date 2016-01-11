@@ -63,16 +63,21 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
   <div class="u-form-group">
    {{ form.login }}
 
+   <br></br>
+
   <div class="u-form-group">
    {{ form.password }}
    
    <div class="u-form-group">
    {{ form.remember}}
 
-  {% if redirect_field_value %}
+  {% if redirect_field_value %}  <br></br>
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
   <a class="button secondaryAction u-form-group" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+
+  <br></br>
+  
   <button class="primaryAction u-form-group" type="submit">{% trans "Sign In" %}</button>
 </form>
 
