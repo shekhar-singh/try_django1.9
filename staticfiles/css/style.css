@@ -97,6 +97,7 @@ box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
   width:100%;
   margin-bottom: 10px;
 }
+.u-form-group input[type="email"],
 .u-form-group input[type="text"],
 .u-form-group input[type="password"]{
   width: calc(50% - 22px);
@@ -106,7 +107,7 @@ box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
   padding: 0 10px;
   border-radius: 2px;
   color: #333;
-  font-size:0.8rem;
+  font-size:1.5rem;
   -webkit-transition:all 0.1s linear;
   -moz-transition:all 0.1s linear;
   transition:all 0.1s linear;
