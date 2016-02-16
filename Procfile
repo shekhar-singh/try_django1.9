@@ -1,1 +1,1 @@
-web: gunicorn bcroy.wsgi --preload
+web: gunicorn logingf.wsgi
