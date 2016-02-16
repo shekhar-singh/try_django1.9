@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.twitter',
     'logingf',
     'django_rq',
+    'gunicorn',
 ]
 
 
