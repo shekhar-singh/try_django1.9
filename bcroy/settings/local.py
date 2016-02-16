@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'logingf',
     'django_rq',
     'gunicorn',
-]
+]   
 
 
 RQ_QUEUES = {
