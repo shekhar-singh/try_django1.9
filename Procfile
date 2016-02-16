@@ -1,1 +1,1 @@
-web: gunicorn logingf.wsgi
+web: gunicorn bcroy.wsgi
