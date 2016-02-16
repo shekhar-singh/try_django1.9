@@ -1,0 +1,1 @@
+web: gunicorn bcroy.wsgi --log-file -
