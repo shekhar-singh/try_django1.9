@@ -44,12 +44,21 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.twitter',
     'logingf',
+    'django_rq',
 ]
 
 
+RQ_QUEUES = {
+     'default': {
+     'HOST': 'localhost',
+     'PORT': 6379,
+     'DB': 8,
+     },
+}
 
 SITE_ID = 1
 
+RQ_SHOW_ADMIN_LINK = True
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',

@@ -36,18 +36,19 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 {% endif %} -->
 
 <div class="login-box">
+<center>
     <div class="lb-header">
       <a href="{{ login_url }}" class="active" id="login-box-link">Login</a>
       <a href="{{ signup_url }}" id="signup-box-link">Sign Up</a>
     </div>
 
     <div class="social-login">
-      <a href="/accounts/twitter/login/?process=login">
+      <a href="/accounts/twitter/login/?process=login" class="twitter">
         <i class="fa fa-twitter fa-lg"></i>
         Login in with twitter
       </a>
   
-      <a href="/accounts/google/login/?process=login">
+      <a href="/accounts/google/login/?process=login" class="google">
         <i class="fa fa-google fa-lg"></i>
         log in with Google
       </a>
@@ -57,9 +58,15 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
   {% csrf_token %}
   
+                <div class="u-form-group">
+                {{ form.as_p }}
+           
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                     </div>
 
-
-
+      <!--
   <div class="u-form-group">
    {{ form.login }}
 
@@ -67,18 +74,23 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
   <div class="u-form-group">
    {{ form.password }}
-   
+   </div>
    <div class="u-form-group">
    {{ form.remember}}
-
+   </div>
   {% if redirect_field_value %}  <br></br>
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <a class="button secondaryAction u-form-group" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+
+  -->
+  <div class="u-form-group">
+    <a class="button secondaryAction u-form-group" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
 
   <br></br>
   
   <button class="primaryAction u-form-group" type="submit">{% trans "Sign In" %}</button>
 </form>
+</div>
+</center>
 
 {% endblock %}
