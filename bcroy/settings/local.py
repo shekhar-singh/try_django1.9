@@ -165,12 +165,12 @@ USE_TZ = True
 # STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_ROOT = os.path.join(os.path.join(settings.PROJECT_ROOT, os.pardir), 'staticfiles')
 STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
+    os.path.join(os.path.join(settings.PROJECT_ROOT, os.pardir), 'static'),
 )
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
