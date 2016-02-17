@@ -1,0 +1,96 @@
+{% extends "account/base.html" %}
+{% load template_style %}
+
+{% load i18n static %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+<!--<h1>{% trans "Sign In" %}</h1>
+
+{% get_providers as socialaccount_providers %}
+
+{% if socialaccount_providers %}
+<p>{% blocktrans with site.name as site_name %}<a href="{{ signup_url }}">sign up</a>
+for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+
+<div class="socialaccount_ballot">
+
+  <ul class="socialaccount_providers">
+    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+  </ul>
+
+  <div class="login-or">{% trans 'or' %}</div>
+
+</div>
+
+{% include "socialaccount/snippets/login_extra.html" %}
+
+{% else %}
+<p>{% blocktrans %}If you have not created an account yet, then please
+<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+{% endif %} -->
+
+<div class="login-box">
+<center>
+    <div class="lb-header">
+      <a href="{{ login_url }}" class="active" id="login-box-link">Login</a>
+      <a href="{{ signup_url }}" id="signup-box-link">Sign Up</a>
+    </div>
+
+    <div class="social-login">
+      <a href="/accounts/twitter/login/?process=login" class="twitter">
+        <i class="fa fa-twitter fa-lg"></i>
+        Login in with twitter
+      </a>
+  
+      <a href="/accounts/google/login/?process=login" class="google">
+        <i class="fa fa-google fa-lg"></i>
+        log in with Google
+      </a>
+    </div>
+
+<form class="email-login" method="POST" action="{% url 'account_login' %}">
+
+  {% csrf_token %}
+  
+                <div class="u-form-group">
+                {{ form.as_p }}
+           
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                     </div>
+
+      <!--
+  <div class="u-form-group">
+   {{ form.login }}
+
+   <br></br>
+
+  <div class="u-form-group">
+   {{ form.password }}
+   </div>
+   <div class="u-form-group">
+   {{ form.remember}}
+   </div>
+  {% if redirect_field_value %}  <br></br>
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+
+  -->
+  <div class="u-form-group">
+    <a class="button secondaryAction u-form-group" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+
+  <br></br>
+  
+  <button class="primaryAction u-form-group" type="submit">{% trans "Sign In" %}</button>
+</form>
+</div>
+</center>
+
+{% endblock %}
