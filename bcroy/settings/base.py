@@ -119,7 +119,7 @@ WSGI_APPLICATION = 'bcroy.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(os.path.join(PROJECT_ROOT, os.pardir), 'db.sqlite3'),
     }
 }
 
