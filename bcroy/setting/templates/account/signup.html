@@ -1,0 +1,67 @@
+{% extends "account/base.html" %}
+{% load template_style %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<!--<h1>{% trans "Sign Up" %}</h1>
+
+<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>-->
+<div class="login-box">
+    <div class="lb-header">
+      <a href="{{ login_url }}" class="active" id="login-box-link">Login</a>
+      <a href="{{ signup_url }}" id="signup-box-link">Sign Up</a>
+    </div>
+    <div class="social-login">
+        <a href="/accounts/twitter/login/?process=login" class="twitter">
+        <i class="fa fa-twitter fa-lg"></i>
+        Login in with twitter
+      </a>
+  
+      <a href="/accounts/google/login/?process=login" class="google">
+        <i class="fa fa-google fa-lg"></i>
+        log in with Google
+      </a>
+    </div>
+<!--
+<form class="email-signup"  method="post" action="{% url 'account_signup' %}">
+  {% csrf_token %}
+
+  <div class="u-form-group"> <br></br>
+  {{ form.username }}
+  
+  </div>
+  <div class="u-form-group"> <br></br>
+  {{ form.email }}
+</div>
+ 
+  <div class="u-form-group">
+  {{ form.password1 }}
+
+  <div class="u-form-group">
+  {{ form.password2 }}
+
+
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+
+  <br></br>
+-->
+
+  <div class="u-form-group">
+<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+  {% csrf_token %}
+  <div class="u-form-group">
+  {{ form.as_p }}
+  
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  </div>
+
+  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+</form>
+
+{% endblock %}
